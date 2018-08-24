@@ -6,11 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node_modules/.bin/live-server",
-    "babel": "node_modules/.bin/babel"
+    "react": "./node_modules/.bin/babel"
   },
   "author": "YYH",
   "license": "ISC",
   "dependencies": {
+    "babel-preset-env": "^1.5.2",
+    "babel-preset-react": "^6.24.1",
     "live-server": "^1.2.0"
   },
   "devDependencies": {
