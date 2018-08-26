@@ -27,4 +27,3 @@ const appRoot = document.getElementById('app');
 ReactDOM.render(template, appRoot);
 
 console.log('testing if my git is fixed now');
-
