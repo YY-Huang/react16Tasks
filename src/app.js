@@ -1,9 +1,17 @@
 console.log('App.js is running');
 
-var template = (
+const app = {
+    title: 'Task App',
+    description: 'A CRUD App for tasks using React + Redux',
+    options: ['one', 'two']
+};
+
+
+const template = (
     <div> 
-        <h1> Yan Yan Huang </h1> 
-        <p> This is some info </p> 
+        <h1> {app.title} </h1> 
+        {(app.description) && <p> {app.description} </p>}
+        <p> {app.options.length > 0 ? 'Here are your options' : 'No options'} </p>
         <ol>
             <li> Item One </li>
             <li> Item Two </li>
@@ -11,15 +19,30 @@ var template = (
     </div>
 );
 
-let template2 = (
+let count = 0;
+const addOne = () => {
+    console.log('add one');
+}
+
+const subOne = () => {
+    console.log('subtract');
+}
+
+const resetCounter = () => {
+    console.log('reset');
+}
+
+
+const template2 = (
     <div>
-        <h1> Yan Yan </h1>
-        <p>Age: 25 </p>
-        <p>Location: NY </p>
+        <h1> Count: {count}</h1>
+        <button onClick={addOne}> +1 </button>
+        <button onClick={subOne}> -1 </button>
+        <button onClick={resetCounter}> Reset </button>
     </div>
-)
+);
  
-var appRoot = document.getElementById('app')
+const appRoot = document.getElementById('app');
 
 
 ReactDOM.render(template2, appRoot);
