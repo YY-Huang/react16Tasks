@@ -45,55 +45,18 @@ var template = React.createElement(
             null,
             ' Item Two '
         )
+    ),
+    React.createElement(
+        'form',
+        null,
+        React.createElement('input', { type: 'text', name: 'option' }),
+        React.createElement(
+            'button',
+            null,
+            ' Add Options '
+        )
     )
 );
 
-var count = 0;
-var addOne = function addOne() {
-    count++;
-    renderCounter();
-};
-
-var subOne = function subOne() {
-    count--;
-    renderCounter();
-};
-
-var resetCounter = function resetCounter() {
-    count = 0;
-    renderCounter();
-};
-
 var appRoot = document.getElementById('app');
-
-var renderCounter = function renderCounter() {
-    var template2 = React.createElement(
-        'div',
-        null,
-        React.createElement(
-            'h1',
-            null,
-            ' Count: ',
-            count
-        ),
-        React.createElement(
-            'button',
-            { onClick: addOne },
-            ' +1 '
-        ),
-        React.createElement(
-            'button',
-            { onClick: subOne },
-            ' -1 '
-        ),
-        React.createElement(
-            'button',
-            { onClick: resetCounter },
-            ' Reset '
-        )
-    );
-
-    ReactDOM.render(template2, appRoot);
-};
-
-renderCounter();
+ReactDOM.render(template, appRoot);
