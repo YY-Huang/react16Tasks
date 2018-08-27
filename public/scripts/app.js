@@ -1,64 +1,30 @@
 'use strict';
 
-console.log('App.js is running');
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var app = {
-    title: 'Task App',
-    description: 'A CRUD App for tasks using React + Redux',
-    options: ['one', 'two']
-};
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var template = React.createElement(
-    'div',
-    null,
-    React.createElement(
-        'h1',
-        null,
-        ' ',
-        app.title,
-        ' '
-    ),
-    app.description && React.createElement(
-        'p',
-        null,
-        ' ',
-        app.description,
-        ' '
-    ),
-    React.createElement(
-        'p',
-        null,
-        ' ',
-        app.options.length > 0 ? 'Here are your options' : 'No options',
-        ' '
-    ),
-    React.createElement(
-        'ol',
-        null,
-        React.createElement(
-            'li',
-            null,
-            ' Item One '
-        ),
-        React.createElement(
-            'li',
-            null,
-            ' Item Two '
-        )
-    ),
-    React.createElement(
-        'form',
-        null,
-        React.createElement('input', { type: 'text', name: 'option' }),
-        React.createElement(
-            'button',
-            null,
-            ' Add Options '
-        )
-    )
-);
+var Person = function () {
+	function Person() {
+		var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'Anonymous';
 
-var appRoot = document.getElementById('app');
-ReactDOM.render(template, appRoot);
+		_classCallCheck(this, Person);
 
-console.log('testing if my git is fixed now');
+		this.name = name;
+	}
+
+	_createClass(Person, [{
+		key: 'getGreeting',
+		value: function getGreeting() {
+			return 'Hi. I am ' + this.name;
+		}
+	}]);
+
+	return Person;
+}();
+
+var me = new Person('Yan Yan Huang');
+console.log(me.getGreeting());
+
+var other = new Person();
+console.log(other.getGreeting());
