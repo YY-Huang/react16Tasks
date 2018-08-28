@@ -22,5 +22,5 @@ Babel-cli is installed globally.
 To watch our script file we use
 
 ```
-babel src/app.js --out-file=public/scripts/app.js --presets=env, react --watch
+babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch
 ```
