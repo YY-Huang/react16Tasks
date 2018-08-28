@@ -2,9 +2,13 @@ console.log('New App.js');
 
 class TaskApp extends React.Component {
     render () {
+
+        const title = "Task App";
+        const subtitle = "Using React and Redux";
+
         return (
             <div>
-                <Header />
+                <Header title={title} subtitle={subtitle}/>
                 <Action />
                 <Options />
                 <AddOption />
@@ -17,8 +21,8 @@ class Header extends React.Component {
     render() {
         return (
             <div>
-                <h1> To Do </h1>
-                <h2> Using React and Redux </h2>
+                <h1> {this.props.title} </h1>
+                <h2> {this.props.subtitle} </h2>
             </div>
         )
     }
