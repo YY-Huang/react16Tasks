@@ -55,7 +55,7 @@ class Option extends React.Component {
         console.log(this.props.optionText)
         return (
             <div>
-                Option: {this.props.OptionText}
+                Option: {this.props.optionText}
             </div>
         )
     }

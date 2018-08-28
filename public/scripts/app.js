@@ -146,7 +146,7 @@ var Option = function (_React$Component5) {
                 "div",
                 null,
                 "Option: ",
-                this.props.OptionText
+                this.props.optionText
             );
         }
     }]);
