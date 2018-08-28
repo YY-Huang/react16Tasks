@@ -25,13 +25,14 @@ var TaskApp = function (_React$Component) {
 
             var title = "Task App";
             var subtitle = "Using React and Redux";
+            var options = ['Thing One', 'Thing Two', 'Thing Three'];
 
             return React.createElement(
                 "div",
                 null,
                 React.createElement(Header, { title: title, subtitle: subtitle }),
                 React.createElement(Action, null),
-                React.createElement(Options, null),
+                React.createElement(Options, { options: options }),
                 React.createElement(AddOption, null)
             );
         }
@@ -115,7 +116,13 @@ var Options = function (_React$Component4) {
     _createClass(Options, [{
         key: "render",
         value: function render() {
-            return React.createElement(Option, null);
+            return React.createElement(
+                "div",
+                null,
+                this.props.options.map(function (option) {
+                    return React.createElement(Option, { key: option, optionText: option });
+                })
+            );
         }
     }]);
 
@@ -134,10 +141,12 @@ var Option = function (_React$Component5) {
     _createClass(Option, [{
         key: "render",
         value: function render() {
+            console.log(this.props.optionText);
             return React.createElement(
                 "div",
                 null,
-                "See Options SINGULAR"
+                "Option: ",
+                this.props.OptionText
             );
         }
     }]);

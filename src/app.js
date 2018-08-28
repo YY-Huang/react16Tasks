@@ -5,12 +5,13 @@ class TaskApp extends React.Component {
 
         const title = "Task App";
         const subtitle = "Using React and Redux";
+        const options = ['Thing One', 'Thing Two', 'Thing Three'];
 
         return (
             <div>
-                <Header title={title} subtitle={subtitle}/>
+                <Header title={title} subtitle={subtitle} />
                 <Action />
-                <Options />
+                <Options options={options} />
                 <AddOption />
             </div>
         )
@@ -41,16 +42,20 @@ class Action extends React.Component {
 class Options extends React.Component {
     render () {
         return (
-            <Option />
+            <div>
+            {this.props.options.map((option) => <Option key={option} optionText={option} />
+            )}
+            </div>
         );
     }
 }
 
 class Option extends React.Component {
     render () {
+        console.log(this.props.optionText)
         return (
             <div>
-                See Options SINGULAR
+                Option: {this.props.OptionText}
             </div>
         )
     }
