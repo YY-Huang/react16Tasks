@@ -1,5 +1,18 @@
 console.log('New App.js');
 
+class TaskApp extends React.Component {
+    render () {
+        return (
+            <div>
+                <Header />
+                <Action />
+                <Options />
+                <AddOption />
+            </div>
+        )
+    }
+}
+
 class Header extends React.Component {
     render() {
         return (
@@ -24,12 +37,21 @@ class Action extends React.Component {
 class Options extends React.Component {
     render () {
         return (
-            <div>
-                See Options 
-            </div>
+            <Option />
         );
     }
 }
+
+class Option extends React.Component {
+    render () {
+        return (
+            <div>
+                See Options SINGULAR
+            </div>
+        )
+    }
+}
+
 
 class AddOption extends React.Component {
     render () {
@@ -41,13 +63,4 @@ class AddOption extends React.Component {
     }
 }
 
-const jsx = (
-    <div>
-        <Header />
-        <Action />
-        <Options />
-        <AddOption />
-    </div>
-);
-
-ReactDOM.render(jsx, document.getElementById('app'))
+ReactDOM.render(<TaskApp />, document.getElementById('app'))
