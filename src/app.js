@@ -45,14 +45,14 @@ class Action extends React.Component {
 class Options extends React.Component {
 
     onRemove() {
-        alert('Removing All')
+        alert('Removing All in Options')
     }
     render () {
         return (
             <div>
+            <button onClick={this.onRemove}> Remove all </button>
             {this.props.options.map((option) => <Option key={option} optionText={option} />
             )}
-            <button onClick={this.onRemove}> Remove all </button>
             </div>
         );
     }
@@ -71,10 +71,24 @@ class Option extends React.Component {
 
 
 class AddOption extends React.Component {
+
+    handleAddOption(e) {
+        e.preventDefault();
+
+        const option = e.target.elements.option.value;
+
+        if (option) {
+            alert(option)
+        }
+    }
+
     render () {
         return (
             <div>
-                Adding Options 
+                <form onSubmit={this.handleAddOption}>
+                    <input type="text" name="option" />
+                    <button> Add Options </button>
+                </form>
             </div>
         );
     }

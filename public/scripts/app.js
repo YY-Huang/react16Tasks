@@ -121,7 +121,7 @@ var Options = function (_React$Component4) {
     _createClass(Options, [{
         key: "onRemove",
         value: function onRemove() {
-            alert('Removing All');
+            alert('Removing All in Options');
         }
     }, {
         key: "render",
@@ -129,14 +129,14 @@ var Options = function (_React$Component4) {
             return React.createElement(
                 "div",
                 null,
-                this.props.options.map(function (option) {
-                    return React.createElement(Option, { key: option, optionText: option });
-                }),
                 React.createElement(
                     "button",
                     { onClick: this.onRemove },
                     " Remove all "
-                )
+                ),
+                this.props.options.map(function (option) {
+                    return React.createElement(Option, { key: option, optionText: option });
+                })
             );
         }
     }]);
@@ -179,12 +179,32 @@ var AddOption = function (_React$Component6) {
     }
 
     _createClass(AddOption, [{
+        key: "handleAddOption",
+        value: function handleAddOption(e) {
+            e.preventDefault();
+
+            var option = e.target.elements.option.value;
+
+            if (option) {
+                alert(option);
+            }
+        }
+    }, {
         key: "render",
         value: function render() {
             return React.createElement(
                 "div",
                 null,
-                "Adding Options"
+                React.createElement(
+                    "form",
+                    { onSubmit: this.handleAddOption },
+                    React.createElement("input", { type: "text", name: "option" }),
+                    React.createElement(
+                        "button",
+                        null,
+                        " Add Options "
+                    )
+                )
             );
         }
     }]);
