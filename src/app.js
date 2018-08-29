@@ -1,5 +1,13 @@
 console.log('New App.js');
+const obj = {
+    name: 'John',
+    getName() {
+        return this.name;
+    }
+}
 
+const getName = obj.getName.bind({name: 'Yan'});
+console.log(getName());
 class TaskApp extends React.Component {
     render () {
 
@@ -43,9 +51,14 @@ class Action extends React.Component {
 }
 
 class Options extends React.Component {
+    constructor(props) {
+        super(props) // access to this.props
+        this.onRemove = this.onRemove.bind(this);
+
+    }
 
     onRemove() {
-        alert('Removing All in Options')
+        console.log(this.props.options);
     }
     render () {
         return (
