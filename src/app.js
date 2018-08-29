@@ -43,11 +43,16 @@ class Action extends React.Component {
 }
 
 class Options extends React.Component {
+
+    onRemove() {
+        alert('Removing All')
+    }
     render () {
         return (
             <div>
             {this.props.options.map((option) => <Option key={option} optionText={option} />
             )}
+            <button onClick={this.onRemove}> Remove all </button>
             </div>
         );
     }
