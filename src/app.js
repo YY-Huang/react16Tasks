@@ -1,13 +1,13 @@
 console.log('New App.js');
-const obj = {
-    name: 'John',
-    getName() {
-        return this.name;
-    }
-}
+// const obj = {
+//     name: 'John',
+//     getName() {
+//         return this.name;
+//     }
+// }
 
-const getName = obj.getName.bind({name: 'Yan'});
-console.log(getName());
+// const getName = obj.getName.bind({name: 'Yan'});
+// console.log(getName());
 class TaskApp extends React.Component {
     render () {
 
