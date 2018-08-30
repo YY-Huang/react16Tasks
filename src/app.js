@@ -9,17 +9,23 @@ console.log('New App.js');
 // const getName = obj.getName.bind({name: 'Yan'});
 // console.log(getName());
 class TaskApp extends React.Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            options: ['Thing One', 'Thing Two', 'Thing Three']
+        }
+    }
     render () {
 
         const title = "Task App";
         const subtitle = "Using React and Redux";
-        const options = ['Thing One', 'Thing Two', 'Thing Three'];
 
         return (
             <div>
                 <Header title={title} subtitle={subtitle} />
-                <Action />
-                <Options options={options} />
+                <Action hasOptions={this.state.options.length > 0}/>
+                <Options options={this.state.options} />
                 <AddOption />
             </div>
         )
@@ -44,7 +50,12 @@ class Action extends React.Component {
     render () {
         return (
             <div>
-                <button onClick={this.handlePick}> What should I do? </button>
+                <button 
+                onClick={this.handlePick}
+                disabled={!this.props.hasOptions}
+                > 
+                    What should I do? 
+                </button>
             </div>
         )
     }
