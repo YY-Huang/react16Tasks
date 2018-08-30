@@ -1,16 +1,31 @@
 
 class Counter extends React.Component {
+
+    handleAddOne() {
+        console.log('Adding One')
+    }
+
+    handleMinusOne() {
+        console.log('Subtract One')
+    }
+
+    handleReset() {
+        console.log('Reset Counter')
+    }
+
     render() {
         return (
             <div>
                 <h1> Counter </h1>
-                <button> +1 </button>
-                <button> -1 </button>
-                <button> Reset </button>
+                <button onClick={this.handleAddOne}> +1 </button>
+                <button onClick={this.handleMinusOne}> -1 </button>
+                <button onClick={this.handleReset}> Reset </button>
             </div>
         )
     }
 }
+
+ReactDOM.render(<Counter/>, document.getElementById('app'))
 
 
 
