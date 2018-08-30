@@ -12,10 +12,20 @@ class TaskApp extends React.Component {
 
     constructor(props) {
         super(props)
+        this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
         this.state = {
             options: ['Thing One', 'Thing Two', 'Thing Three']
         }
     }
+
+    handleDeleteOptions() {
+        this.setState(() => {
+            return {
+                options: []
+            }
+        })
+    }
+
     render () {
 
         const title = "Task App";
@@ -25,7 +35,10 @@ class TaskApp extends React.Component {
             <div>
                 <Header title={title} subtitle={subtitle} />
                 <Action hasOptions={this.state.options.length > 0}/>
-                <Options options={this.state.options} />
+                <Options 
+                    options={this.state.options} 
+                    handleDeleteOptions={this.handleDeleteOptions}
+                />
                 <AddOption />
             </div>
         )
@@ -62,19 +75,10 @@ class Action extends React.Component {
 }
 
 class Options extends React.Component {
-    constructor(props) {
-        super(props) // access to this.props
-        this.onRemove = this.onRemove.bind(this);
-
-    }
-
-    onRemove() {
-        console.log(this.props.options);
-    }
     render () {
         return (
             <div>
-            <button onClick={this.onRemove}> Remove all </button>
+            <button onClick={this.props.handleDeleteOptions}> Remove all </button>
             {this.props.options.map((option) => <Option key={option} optionText={option} />
             )}
             </div>
