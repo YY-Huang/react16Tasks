@@ -28,7 +28,7 @@ var TaskApp = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (TaskApp.__proto__ || Object.getPrototypeOf(TaskApp)).call(this, props));
 
         _this.handleDeleteOptions = _this.handleDeleteOptions.bind(_this);
-        _this.handlepick = _this.handlePick.bind(_this);
+        _this.handlePick = _this.handlePick.bind(_this);
         _this.state = {
             options: ['Thing One', 'Thing Two', 'Thing Three']
         };
@@ -47,7 +47,9 @@ var TaskApp = function (_React$Component) {
     }, {
         key: 'handlePick',
         value: function handlePick() {
-            alert('picking test');
+            var randomTask = Math.floor(Math.random() * this.state.options.length);
+            var option = this.state.options[randomTask];
+            alert(option);
         }
     }, {
         key: 'render',

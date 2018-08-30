@@ -13,7 +13,7 @@ class TaskApp extends React.Component {
     constructor(props) {
         super(props)
         this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
-        this.handlepick = this.handlePick.bind(this);
+        this.handlePick = this.handlePick.bind(this);
         this.state = {
             options: ['Thing One', 'Thing Two', 'Thing Three']
         }
@@ -28,7 +28,9 @@ class TaskApp extends React.Component {
     }
 
     handlePick () {
-        alert('picking test')
+        const randomTask = Math.floor(Math.random() * this.state.options.length);
+        const option = this.state.options[randomTask];
+        alert(option)
     }
 
     render () {
