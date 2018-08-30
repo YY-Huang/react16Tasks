@@ -1,9 +1,17 @@
 
 let count = 0;
+
 const addOne = () => {
     count++;
     renderCounterApp();
 }
+
+const minusOne = () => {
+    count--;
+    renderCounterApp();
+}
+
+
 
 const renderCounterApp = () => {
     const templateTwo = (
