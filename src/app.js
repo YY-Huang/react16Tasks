@@ -14,6 +14,7 @@ class TaskApp extends React.Component {
         super(props)
         this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
         this.handlePick = this.handlePick.bind(this);
+        this.handleAddOption = this.handleAddOption.bind(this);
         this.state = {
             options: ['Thing One', 'Thing Two', 'Thing Three']
         }
@@ -33,6 +34,17 @@ class TaskApp extends React.Component {
         alert(option)
     }
 
+    handleAddOption(option) {
+        this.setState((prevState) => {
+            return {
+                options: prevState.options.concat(option)
+            }
+        })
+
+    }
+
+    
+
     render () {
 
         const title = "Task App";
@@ -49,7 +61,9 @@ class TaskApp extends React.Component {
                     options={this.state.options} 
                     handleDeleteOptions={this.handleDeleteOptions}
                 />
-                <AddOption />
+                <AddOption 
+                    handleAddOption={this.handleAddOption}
+                />
             </div>
         )
     }
@@ -107,20 +121,25 @@ class Option extends React.Component {
 
 class AddOption extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.handleAddOption = this.handleAddOption.bind(this);
+    }
+
     handleAddOption(e) {
         e.preventDefault();
 
         const option = e.target.elements.option.value.trim();
 
         if (option) {
-            alert(option)
+            this.props.handleAddOption(option);
         }
     }
 
     render () {
         return (
             <div>
-                <form onSubmit={this.handleAddOption}>
+                <form onSubmit={this.props.handleAddOption}>
                     <input type="text" name="option" />
                     <button> Add Options </button>
                 </form>
