@@ -139,7 +139,7 @@ class AddOption extends React.Component {
     render () {
         return (
             <div>
-                <form onSubmit={this.props.handleAddOption}>
+                <form onSubmit={this.handleAddOption}>
                     <input type="text" name="option" />
                     <button> Add Options </button>
                 </form>
